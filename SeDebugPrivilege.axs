@@ -28,7 +28,7 @@ cmd_sedebug.setPreHook(function (id, cmdline, parsed_json, ...parsed_lines) {
     }
 
     let bof_params = ax.bof_pack("int,bytes", [pid, shellcode]);
-    let bof_path   = ax.script_dir() + "bin" + "SeDebugPrivilege.o";
+    let bof_path   = ax.script_dir() + "bin/" + "SeDebugPrivilege.o";
 
     ax.execute_alias(id, cmdline, `execute bof ${bof_path} ${bof_params}`, "Task: SeDebugPrivilege inject");
 });
