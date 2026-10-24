@@ -72,7 +72,14 @@ HANDLE GetProcessHandle ( DWORD pid ) {
   return hProcess;
 }
 
-HANDLE enableToken ( HANDLE hProcess ) {
+
+/* 
+  i've realized that doesn't make sense to return
+  the handle of the token because all the operations
+  happens inside the function.
+  should use ai to realize it before xd.
+*/
+void enableToken ( HANDLE hProcess ) {
   HANDLE            hToken;
   TOKEN_PRIVILEGES  tPrivs;
 
@@ -85,8 +92,8 @@ HANDLE enableToken ( HANDLE hProcess ) {
   if ( !ADVAPI32$AdjustTokenPrivileges ( hToken, FALSE, &tPrivs, 0, ( PTOKEN_PRIVILEGES ) NULL, 0  ) ) 
   {
     BeaconPrintf ( CALLBACK_ERROR, "[-] Cannot adjust token privileges\n");
-    return NULL;
+    return;
   } 
 
-  return hToken;
+  KERNEL32$CloseHandle ( hToken );
 }

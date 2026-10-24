@@ -57,7 +57,7 @@ The following are vectors this BOF addresses or that will be improved by the dev
 
 - [ ] Replace `PROCESS_ALL_ACCESS` with minimum required access rights per API call
 - [ ] Check token state with `GetTokenInformation` before calling `AdjustTokenPrivileges`
-- [ ] Add `CloseHandle` on `hToken` after `AdjustTokenPrivileges`
+- [x] Add `CloseHandle` on `hToken` after `AdjustTokenPrivileges`
 - [ ] Deliver shellcode encrypted — decrypt in-memory before passing to the BOF
 
 ### Operator responsibility

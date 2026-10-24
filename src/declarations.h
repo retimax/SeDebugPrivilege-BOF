@@ -16,4 +16,4 @@ DECLSPEC_IMPORT BOOL   WINAPI ADVAPI32$OpenProcessToken       ( HANDLE, DWORD, P
 /* Functions declaration */
 void    go                ( char * args, int argc );
 HANDLE  GetProcessHandle  ( DWORD pid );
-HANDLE  enableToken       ( HANDLE hProcess );
+void    enableToken       ( HANDLE hProcess );
